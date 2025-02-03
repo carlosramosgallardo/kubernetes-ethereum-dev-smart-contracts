@@ -1,0 +1,21 @@
+server:
+  insecure: true                       
+  ingress:
+    enabled: true
+    hostname: "argocd.local"             
+    ingressClassName: "traefik"
+    annotations:
+      traefik.ingress.kubernetes.io/router.entrypoints: "web"
+    path: "/"                 
+    pathType: Prefix
+    tls: false                   
+  service:
+    type: ClusterIP
+    servicePortHttp: 80 
+configs:
+  params:
+    "server.insecure": "true"
+    create: true
+
+dex:
+  enabled: false

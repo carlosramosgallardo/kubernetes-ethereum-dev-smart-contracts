@@ -1,0 +1,51 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: deploy-smart-contract-game
+spec:
+  template:
+    spec:
+      containers:
+        - name: deployer
+          image: smart-contract-deployer:1.0
+          imagePullPolicy: IfNotPresent
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              echo "Copiando MyContract.sol...";
+              cp /contracts/MyContract.sol ./contracts/MyContract.sol;
+              echo "Copiando deploy.js...";
+              cp /deploy/deploy.js ./scripts/deploy.js;
+              echo "Compilando smart contracts...";
+              npx hardhat compile;
+              echo "Desplegando smart contract...";
+              npx hardhat run scripts/deploy.js --network development;
+              echo "hardhat finalizado";
+              echo "Despliegue finalizado.";
+          env:
+            - name: NODE_ENV
+              value: "development"
+            - name: NODE_RPC_URL
+              value: "http://besu:8545"
+            - name: PRIVATE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: wallet
+                  key: PRIVATE_KEY
+            - name: CONTRACT_RIDDLE
+              value: "Este banco está ocupado por un padre y por un hijo. El padre se llama Juan y el hijo ya te lo he dicho"
+            - name: CONTRACT_SECRET
+              value: "Esteban"
+          volumeMounts:
+            - name: smart-contract-volume
+              mountPath: /contracts
+            - name: deploy-script-volume
+              mountPath: /deploy
+      volumes:
+        - name: smart-contract-volume
+          configMap:
+            name: smart-contract-config
+        - name: deploy-script-volume
+          configMap:
+            name: smart-contract-deploy-config
+      restartPolicy: Never

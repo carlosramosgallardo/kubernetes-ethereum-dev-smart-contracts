@@ -1,0 +1,8 @@
+ethstats:
+  ingress:
+    enabled: true
+    hosts:
+      - host: "ethstats.local" 
+        paths:
+          - path: "/"
+            pathType: Prefix

@@ -1,0 +1,75 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/home/crg/kubernetes-ethereum-dev-smart-contracts/contracts/RiddleContract.sol": {
+      "lastModificationDate": 1738589679086,
+      "contentHash": "fc06376ac73516d7077a880ca2f026db",
+      "sourceName": "contracts/RiddleContract.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "RiddleContract"
+      ]
+    },
+    "/home/crg/kubernetes-ethereum-dev-smart-contracts/contracts/zMyContract.sol": {
+      "lastModificationDate": 1738468324318,
+      "contentHash": "f8089b94b596333ce60d50d824191185",
+      "sourceName": "contracts/zMyContract.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "MyContract"
+      ]
+    }
+  }
+}
