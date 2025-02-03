@@ -171,6 +171,7 @@ node tools/createWallet.js
 
 Sample Output:
 
+```sh
 Address: 0xCe9CCcF85...
 Private Key: 0xf7e69b...
 ```
