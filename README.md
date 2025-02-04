@@ -29,7 +29,7 @@ All services are automatically deployed by reading different directories from th
 ![Imagen de ArgoCD](./images/argocd.jpg)
 
 
-Applying the deployment to my local environment using WSL with Rancher Desktop and Docker:
+Applying the deployment to my local environment using **WSL** with **Rancher Desktop** and **Docker**:
 
 
 ```sh
