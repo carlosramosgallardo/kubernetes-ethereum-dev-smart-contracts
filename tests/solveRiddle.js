@@ -6,7 +6,7 @@ async function main() {
     throw new Error("❌ CONTRACT_ADDRESS no está definido.");
   }
 
-  let correctAnswer = process.env.SECRET_ANSWER || "Aserejee?";
+  let correctAnswer = process.env.SECRET_ANSWER || "Esteban";
   
   // Limpia la respuesta usando normalize() y trim()
   correctAnswer = correctAnswer.trim().normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
