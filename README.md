@@ -48,13 +48,14 @@ blockscout-smart-contract-verifier-http-0                   1/1     Running     
 deploy-smart-contract-game-xdzl6                            0/1     Completed   0             10h
 ethstats-6b5f67d886-5skr8                                   1/1     Running     0             11h
 teku-0                                                      1/1     Running     0             11h
+
 crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ kubectl get ing
 NAME                    CLASS     HOSTS              ADDRESS         PORTS   AGE
 argo-cd-argocd-server   traefik   argocd.local       192.168.127.2   80      33h
 besu                    traefik   besu.local         192.168.127.2   80      11h
 blockscout              traefik   blockscout.local   192.168.127.2   80      11h
 ethstats                traefik   ethstats.local     192.168.127.2   80      11h
-crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ 
+
 crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ kubectl get svc
 NAME                                               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                                                   AGE
 argo-cd-argocd-applicationset-controller           ClusterIP   10.43.158.12    <none>        7000/TCP                                                  34h
@@ -73,14 +74,12 @@ ethstats                                           ClusterIP   10.43.64.185    <
 kubernetes                                         ClusterIP   10.43.0.1       <none>        443/TCP                                                   7d4h
 teku                                               ClusterIP   10.43.47.109    <none>        9000/TCP,9000/UDP,5051/TCP,8008/TCP                       11h
 teku-headless                                      ClusterIP   None            <none>        9000/TCP,9000/UDP,5051/TCP,8008/TCP                       11h
-crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ 
+
 crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ kubectl get sc
 NAME                   PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
 local-path (default)   rancher.io/local-path   Delete          WaitForFirstConsumer   false                  7d4h
 crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ 
 ```
-
-
 ## 🛠️ **Manual Deployment**  
 
 Add Helm Repositories:
