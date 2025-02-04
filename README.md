@@ -162,9 +162,9 @@ Downloading compiler 0.8.17
 Compiled 1 Solidity file successfully (evm target: london).
 Desplegando smart contract...
 Desplegando contratos con la cuenta: 0xF095cE2b1E5a4782A1A6181C1FeE81b43EB18c4f
-Saldo de la cuenta: 5378000000000000000000
+Saldo de la cuenta: 8744000000000000000000
 Desplegando contrato...
-Contrato desplegado en: 0xCe9CCcF852eb14c7E65719B902356b0CA2e28c8A
+Contrato desplegado en: 0x29067a977dafC4781C0F9f66C2d87868C556b75c
 hardhat finalizado
 Despliegue finalizado.
 ```
@@ -191,7 +191,7 @@ npx hardhat compile
 Test Contract Execution:
 
 ```sh
-export CONTRACT_ADDRESS=0xCe9CCcF852eb14c7E65719B902356b0CA2e28c8A
+export CONTRACT_ADDRESS=0x29067a977dafC4781C0F9f66C2d87868C556b75c
 npx hardhat run tests/solveRiddle.js --network development
 ```
 

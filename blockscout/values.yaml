@@ -48,3 +48,8 @@ extraEnv:
     value: "ws://besu:8546"
   - name: ETHEREUM_JSONRPC_TRACE_URL
     value: "http://besu:8545"
+
+
+serviceAccount:
+  create: true
+  name: blockscout-sa 
