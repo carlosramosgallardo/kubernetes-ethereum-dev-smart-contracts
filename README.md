@@ -1,9 +1,10 @@
 # Kubernetes Ethereum Dev & Smart Contracts 🚀
 
-Welcome to **Kubernetes Ethereum Dev & Smart Contracts**! This project provides a fully automated deployment setup for Ethereum private networks using **Besu, Teku, BlockScout, EthStats**, and **Smart Contracts**, all orchestrated with **GitOps** via **ArgoCD**.
+Welcome to **Kubernetes Ethereum Dev & Smart Contracts**! 
+This project provides a fully automated deployment setup for Ethereum private networks using **Besu, Teku, BlockScout, EthStats**, and **Smart Contracts**.
 
 
-📌 GitOps (ArgoCD & GitHub)
+📌 **GitOps (ArgoCD & GitHub)**
 
 Automate your deployments with ArgoCD for continuous integration and delivery:
 
