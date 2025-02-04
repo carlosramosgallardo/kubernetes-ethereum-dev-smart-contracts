@@ -28,7 +28,57 @@ All services are automatically deployed by reading different directories from th
 
 Applying the deployment to my local environment using WSL with Rancher Desktop and Docker:
 
-![Imagen de WSL/images/wsl.jpg)
+
+```sh
+crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ kubectl get nodes -o wide
+NAME       STATUS   ROLES                  AGE    VERSION        INTERNAL-IP     EXTERNAL-IP   OS-IMAGE                           KERNEL-VERSION                       CONTAINER-RUNTIME
+aserejee   Ready    control-plane,master   7d4h   v1.31.4+k3s1   192.168.127.2   <none>        Rancher Desktop WSL Distribution   5.15.167.4-microsoft-standard-WSL2   docker://26.1.5
+crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ kubectl get pods
+NAME                                                        READY   STATUS      RESTARTS      AGE
+argo-cd-argocd-application-controller-0                     1/1     Running     0             33h
+argo-cd-argocd-applicationset-controller-65694d4b9f-2f22b   1/1     Running     0             33h
+argo-cd-argocd-notifications-controller-57fb644d5f-zzcjq    1/1     Running     0             34h
+argo-cd-argocd-redis-5466694fb4-gzxvj                       1/1     Running     0             34h
+argo-cd-argocd-repo-server-75d584fcc9-4qm69                 1/1     Running     0             33h
+argo-cd-argocd-server-5f969d76bb-h4dgx                      1/1     Running     0             33h
+besu-0                                                      1/1     Running     0             11h
+blockscout-0                                                1/1     Running     1 (11h ago)   11h
+blockscout-postgresql-0                                     1/1     Running     0             11h
+blockscout-smart-contract-verifier-http-0                   1/1     Running     0             11h
+deploy-smart-contract-game-xdzl6                            0/1     Completed   0             10h
+ethstats-6b5f67d886-5skr8                                   1/1     Running     0             11h
+teku-0                                                      1/1     Running     0             11h
+crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ kubectl get ing
+NAME                    CLASS     HOSTS              ADDRESS         PORTS   AGE
+argo-cd-argocd-server   traefik   argocd.local       192.168.127.2   80      33h
+besu                    traefik   besu.local         192.168.127.2   80      11h
+blockscout              traefik   blockscout.local   192.168.127.2   80      11h
+ethstats                traefik   ethstats.local     192.168.127.2   80      11h
+crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ 
+crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ kubectl get svc
+NAME                                               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                                                   AGE
+argo-cd-argocd-applicationset-controller           ClusterIP   10.43.158.12    <none>        7000/TCP                                                  34h
+argo-cd-argocd-redis                               ClusterIP   10.43.128.127   <none>        6379/TCP                                                  34h
+argo-cd-argocd-repo-server                         ClusterIP   10.43.25.202    <none>        8081/TCP                                                  34h
+argo-cd-argocd-server                              ClusterIP   10.43.136.198   <none>        80/TCP,443/TCP                                            34h
+besu                                               ClusterIP   10.43.185.194   <none>        30303/TCP,30303/UDP,8545/TCP,8546/TCP,8551/TCP,9545/TCP   11h
+besu-headless                                      ClusterIP   None            <none>        30303/TCP,30303/UDP,8545/TCP,8546/TCP,8551/TCP,9545/TCP   11h
+blockscout                                         ClusterIP   10.43.62.75     <none>        4000/TCP                                                  11h
+blockscout-headless                                ClusterIP   None            <none>        4000/TCP                                                  11h
+blockscout-postgresql                              ClusterIP   10.43.104.99    <none>        5432/TCP                                                  11h
+blockscout-postgresql-hl                           ClusterIP   None            <none>        5432/TCP                                                  11h
+blockscout-smart-contract-verifier-http            ClusterIP   10.43.12.0      <none>        8050/TCP                                                  11h
+blockscout-smart-contract-verifier-http-headless   ClusterIP   None            <none>        8050/TCP                                                  11h
+ethstats                                           ClusterIP   10.43.64.185    <none>        3000/TCP                                                  11h
+kubernetes                                         ClusterIP   10.43.0.1       <none>        443/TCP                                                   7d4h
+teku                                               ClusterIP   10.43.47.109    <none>        9000/TCP,9000/UDP,5051/TCP,8008/TCP                       11h
+teku-headless                                      ClusterIP   None            <none>        9000/TCP,9000/UDP,5051/TCP,8008/TCP                       11h
+crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ 
+crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ kubectl get sc
+NAME                   PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+local-path (default)   rancher.io/local-path   Delete          WaitForFirstConsumer   false                  7d4h
+crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ 
+```
 
 
 ## 🛠️ **Manual Deployment**  
@@ -88,7 +138,9 @@ Deploy Smart Contract:
 kubectl delete -f smart-contract-deployer/jobs/smart-contract.yaml \
     -f smart-contract-deployer/configmaps/smart-contract.yaml \
     -f smart-contract-deployer/configmaps/deploy.yaml
+```
 
+```sh
 kubectl create -f smart-contract-deployer/jobs/smart-contract.yaml \
     -f smart-contract-deployer/configmaps/smart-contract.yaml \
     -f smart-contract-deployer/configmaps/deploy.yaml
@@ -99,9 +151,6 @@ Extract Contract Address from Logs:
 ```sh
 kubectl logs deploy-smart-contract-game-2b9hg -f
 ```
-
-Sample Output:
-
 ```sh
 Copiando MyContract.sol...
 Compilando smart contracts...
@@ -132,6 +181,9 @@ Test Contract Execution:
 
 ```sh
 npx hardhat run tests/solveRiddle.js --network development
+```
+
+```sh
 ⏳ Intentando resolver el acertijo con: 'palabraSecreta'
 ❌ Error al intentar resolver el acertijo: Execution reverted: Respuesta incorrecta.
 ```
@@ -143,6 +195,9 @@ When the secret word is entered, a transaction is triggered where the variable c
 
 ```sh
 npx hardhat run tests/solveRiddle.js --network development
+```
+
+```sh
 ⏳ Intentando resolver el acertijo con: 'Esteban'
 ⏳ Verificando si el acertijo fue resuelto...
 Estado de isSolved después de intentar resolver: true
@@ -153,6 +208,9 @@ When the secret word is correct, the corresponding variable is set to true. The 
 
 ```sh
 npx hardhat run tests/solveRiddle.js --network development
+```
+
+```sh
 ⏳ Intentando resolver el acertijo con: 'Esteban'
 ❌ Error al intentar resolver el acertijo: Execution reverted: El acertijo ya ha sido resuelto.
 ```
