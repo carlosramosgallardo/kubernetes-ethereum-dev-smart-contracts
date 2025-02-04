@@ -217,7 +217,11 @@ npx hardhat run tests/solveRiddle.js --network development
 ❌ Error al intentar resolver el acertijo: Execution reverted: El acertijo ya ha sido resuelto.
 ```
 
-When the contract is verified, for example, from the BlockScout portal (with the verifier activated and knowledge of the contract and some compilation data, etc.), features such as "Read Contract" or "Write Contract" are enabled, allowing you to view the contract code.
+The smart contract can be verified from the BlockScout portal if the verifier has been enabled:
+
+
+
+Features such as "Read Contract" or "Write Contract" are enabled, allowing you to view the contract code.
 
 ![Imagen de smart_contract_verified](./images/smart_contract_verified.jpg)
 
