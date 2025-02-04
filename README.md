@@ -32,7 +32,7 @@ This repository is organized into the following directories:
 
 ---
 
-For a deeper dive into the setup, configurations, and hands-on exercises, check out the full course here. 🚀
+For a deeper dive into the setup, configurations, and hands-on exercises, check out the **[full course here](course/guide.md)**. 🚀
 
 ---
 
