@@ -5,7 +5,7 @@ Welcome to **Kubernetes Ethereum Dev & Smart Contracts**! This project provides 
 
 📌 GitOps (ArgoCD & GitHub)
 
-Automate your deployments with **ArgoCD** for continuous integration and delivery:
+Automate your deployments with ArgoCD for continuous integration and delivery:
 
 Install ArgoCD:
 
