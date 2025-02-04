@@ -33,6 +33,7 @@ Applying the deployment to my local environment using WSL with Rancher Desktop a
 crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ kubectl get nodes -o wide
 NAME       STATUS   ROLES                  AGE    VERSION        INTERNAL-IP     EXTERNAL-IP   OS-IMAGE                           KERNEL-VERSION                       CONTAINER-RUNTIME
 aserejee   Ready    control-plane,master   7d4h   v1.31.4+k3s1   192.168.127.2   <none>        Rancher Desktop WSL Distribution   5.15.167.4-microsoft-standard-WSL2   docker://26.1.5
+
 crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ kubectl get pods
 NAME                                                        READY   STATUS      RESTARTS      AGE
 argo-cd-argocd-application-controller-0                     1/1     Running     0             33h
