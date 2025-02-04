@@ -120,25 +120,25 @@ helm upgrade ethstats --install ethereum-helm-charts/ethstats -f ./ethstats/valu
 ```
 
 
-🔹 What is Besu?  
+🔹 **What is Besu?**  
 
 [Hyperledger Besu](https://www.hyperledger.org/use/besu) is an open-source Ethereum client designed for both public and private networks. It supports Ethereum Mainnet, private networks, and permissioned consortium networks. Besu enables smart contract execution, consensus mechanisms (such as IBFT and PoA), and full compatibility with Ethereum’s JSON-RPC APIs.
 
 
 
-🔹 What is Teku?  
+🔹 **What is Teku?**  
 
 [Teku](https://consensys.net/teku) is an open-source Ethereum client developed by Consensys, designed specifically for Ethereum’s Proof-of-Stake consensus (Ethereum Beacon Chain). It enables users to run Ethereum validators, participate in staking, and interact with the Ethereum 2.0 network using the Beacon Chain API.
 
 
-🔹 What is EthStats?  
+🔹 **What is EthStats?**
 
 [EthStats](https://github.com/Alethio/ethstats-network) is a real-time Ethereum network monitoring tool that provides insights into node performance, block propagation, and overall network health. It allows users to visualize blockchain statistics such as block times, transaction counts, and peer connections in an interactive dashboard.
 
 ![Imagen de EthStats](./images/ethstats.jpg)
 
 
-🔹 What is BlockScout?  
+🔹 **What is BlockScout?**
 
 [BlockScout](https://blockscout.com/) is an open-source blockchain explorer that provides detailed insights into Ethereum and EVM-compatible networks. It allows users to search for transactions, addresses, blocks, and smart contracts, offering a user-friendly interface to interact with on-chain data.
 
