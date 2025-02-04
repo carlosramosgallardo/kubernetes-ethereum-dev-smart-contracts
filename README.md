@@ -2,7 +2,8 @@
 
 Welcome to **Kubernetes Ethereum Dev & Smart Contracts**! This project provides a fully automated deployment setup for Ethereum private networks using **Besu, Teku, BlockScout, EthStats**, and **Smart Contracts**, all orchestrated with **GitOps** via **ArgoCD**.
 
-📌 GitOps with ArgoCD
+
+📌 GitOps (ArgoCD & GitHub)
 
 Automate your deployments with **ArgoCD** for continuous integration and delivery:
 
@@ -81,7 +82,14 @@ teku-headless                                      ClusterIP   None            <
 crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ kubectl get sc
 NAME                   PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
 local-path (default)   rancher.io/local-path   Delete          WaitForFirstConsumer   false                  7d4h
+
+crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ kubectl get pvc
+NAME                           STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+data-blockscout-postgresql-0   Bound    pvc-f89f7b59-5fe7-453c-b77e-11a88eec9861   10Gi       RWO            local-path     <unset>                 40m
+storage-besu-0                 Bound    pvc-949cce87-d951-4aac-8a27-c3f92f9b5292   10Gi       RWO            local-path     <unset>                 41m
+storage-teku-0                 Bound    pvc-0c51147d-b961-4057-a454-70489a12934c   10Gi       RWO            local-path     <unset>                 40m
 ```
+
 
 🛠️ **Manual Deployment**  
 
@@ -111,14 +119,17 @@ helm upgrade blockscout --install ethereum-helm-charts/blockscout -f ./blockscou
 helm upgrade ethstats --install ethereum-helm-charts/ethstats -f ./ethstats/values.yaml
 ```
 
+
 🔹 What is Besu?  
 
 [Hyperledger Besu](https://www.hyperledger.org/use/besu) is an open-source Ethereum client designed for both public and private networks. It supports Ethereum Mainnet, private networks, and permissioned consortium networks. Besu enables smart contract execution, consensus mechanisms (such as IBFT and PoA), and full compatibility with Ethereum’s JSON-RPC APIs.
 
 
+
 🔹 What is Teku?  
 
 [Teku](https://consensys.net/teku) is an open-source Ethereum client developed by Consensys, designed specifically for Ethereum’s Proof-of-Stake consensus (Ethereum Beacon Chain). It enables users to run Ethereum validators, participate in staking, and interact with the Ethereum 2.0 network using the Beacon Chain API.
+
 
 🔹 What is EthStats?  
 
@@ -126,12 +137,12 @@ helm upgrade ethstats --install ethereum-helm-charts/ethstats -f ./ethstats/valu
 
 ![Imagen de EthStats](./images/ethstats.jpg)
 
+
 🔹 What is BlockScout?  
 
 [BlockScout](https://blockscout.com/) is an open-source blockchain explorer that provides detailed insights into Ethereum and EVM-compatible networks. It allows users to search for transactions, addresses, blocks, and smart contracts, offering a user-friendly interface to interact with on-chain data.
 
 ![Imagen de BlockScout](./images/blockscout.jpg)
-
 
 
 🏗️ **Build Smart Contract Deployer Image**
@@ -246,6 +257,7 @@ Features such as "Read Contract" or "Write Contract" are enabled, allowing you t
 
 ![Imagen de smart_contract_verified](./images/smart_contract_verified.jpg)
 
+
 🔧 **Tools**
 
 Create a New Wallet:
@@ -260,5 +272,6 @@ Sample Output:
 Address: 0xCe9CCcF85...
 Private Key: 0xf7e69b...
 ```
+
 
 🚀 Now you're ready to deploy and interact with Ethereum on Kubernetes! 🎉
