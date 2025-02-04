@@ -15,7 +15,7 @@ This repository is organized into the following directories:
 📂 **`blockscout/`** - Helm chart and settings for deploying **BlockScout**, an Ethereum block explorer.  
 📂 **`cache/`** - Temporary storage for compiled smart contracts and dependencies.  
 📂 **`contracts/`** - Solidity smart contract source code.  
-📂 **`course/`** - **[Course Guide](course/guide.md)** and structured materials for learning Kubernetes and Ethereum.  
+📂 **`course/`** - **Course Guide** and structured materials for learning Kubernetes and Ethereum.  
 📂 **`deploys/`** - Helm charts and Kubernetes manifests for managing deployments.  
 📂 **`ethstats/`** - Helm configuration for deploying **EthStats**, a network monitoring tool.  
 📂 **`images/`** - Docker images and custom scripts for smart contract deployment.  
