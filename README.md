@@ -17,6 +17,8 @@ curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/lat
 
 ```sh
 argocd login argocd.local --plaintext --grpc-web
+````
+```sh
 Username: admin
 Password: <your-password>
 ```
@@ -79,8 +81,8 @@ teku-headless                                      ClusterIP   None            <
 crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ kubectl get sc
 NAME                   PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
 local-path (default)   rancher.io/local-path   Delete          WaitForFirstConsumer   false                  7d4h
-crg@Aserejee:~/kubernetes-ethereum-dev-smart-contracts$ 
 ```
+
 ## 🛠️ **Manual Deployment**  
 
 Add Helm Repositories:
