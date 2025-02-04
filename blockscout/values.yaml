@@ -1,51 +1,50 @@
-blockscout:
-  ingress:
-    enabled: true
-    hosts:
-      - host: "blockscout.local"
-        paths:
-          - path: "/"
-            pathType: Prefix
+ingress:
+  enabled: true
+  hosts:
+    - host: "blockscout.local"
+      paths:
+        - path: "/"
+          pathType: Prefix
 
-  resources:
-    requests:
-      cpu: "2000m"
-      memory: "4Gi"
-    limits:
-      cpu: "4000m"
-      memory: "8Gi"
+resources:
+  requests:
+    cpu: "2000m"
+    memory: "4Gi"
+  limits:
+    cpu: "4000m"
+    memory: "8Gi"
 
-  smart-contract-verifier-http:
-    enabled: true
+smart-contract-verifier-http:
+  enabled: true
 
-  postgresql:
-    enabled: true
-    auth:
-      existingSecret: blockscout-postgresql
-      usernacme: postgres
-    primary:
-      extendedConfiguration: |
-        max_connections = 50000
-      persistence:
-        enabled: true
-        size: 10Gi
+postgresql:
+  enabled: true
+  auth:
+    existingSecret: blockscout-postgresql
+    usernacme: postgres
+  primary:
+    extendedConfiguration: |
+      max_connections = 50000
+    persistence:
+      enabled: true
+      size: 10Gi
 
-  extraEnv:
-    - name: RE_CAPTCHA_V3_SECRET_KEY    
-      valueFrom:
-        secretKeyRef:
-          name: recaptcha-credentials
-          key: RE_CAPTCHA_SECRET_KEY
-    - name: RE_CAPTCHA_V3_CLIENT_KEY
-      valueFrom:
-        secretKeyRef:
-          name: recaptcha-credentials
-          key: RE_CAPTCHA_V3_CLIENT_KEY
-    - name: ETHEREUM_JSONRPC_VARIANT
-      value: "besu"
-    - name: ETHEREUM_JSONRPC_HTTP_URL
-      value: "http://besu:8545"
-    - name: ETHEREUM_JSONRPC_WS_URL
-      value: "ws://besu:8546"
-    - name: ETHEREUM_JSONRPC_TRACE_URL
-      value: "http://besu:8545"
+extraEnv:
+  - name: RE_CAPTCHA_V3_SECRET_KEY    
+    valueFrom:
+      secretKeyRef:
+        name: recaptcha-credentials
+        key: RE_CAPTCHA_SECRET_KEY
+  - name: RE_CAPTCHA_V3_CLIENT_KEY
+    valueFrom:
+      secretKeyRef:
+        name: recaptcha-credentials
+        key: RE_CAPTCHA_V3_CLIENT_KEY
+  - name: ETHEREUM_JSONRPC_VARIANT
+    value: "besu"
+  - name: ETHEREUM_JSONRPC_HTTP_URL
+    value: "http://besu:8545"
+  - name: ETHEREUM_JSONRPC_WS_URL
+    value: "ws://besu:8546"
+  - name: ETHEREUM_JSONRPC_TRACE_URL
+    value: "http://besu:8545"
