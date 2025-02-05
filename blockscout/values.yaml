@@ -21,7 +21,7 @@ postgresql:
   enabled: true
   auth:
     existingSecret: blockscout-postgresql
-    usernacme: postgres
+    username: postgres
   primary:
     extendedConfiguration: |
       max_connections = 50000
