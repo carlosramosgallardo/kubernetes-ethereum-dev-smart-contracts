@@ -14,10 +14,10 @@ version: 0.2.3
 dependencies:
   - name: postgresql
     repository: https://charts.bitnami.com/bitnami
-    version: 12.5.6
+    version: "12.5.6"
   - name: smart-contract-verifier-http
     repository: https://ethpandaops.github.io/ethereum-helm-charts
-    version: 0.1.2
+    version: "0.1.2"
   - name: blockscout
     repository: https://ethpandaops.github.io/ethereum-helm-charts
-    version: 0.2.3
+    version: "0.2.3"
