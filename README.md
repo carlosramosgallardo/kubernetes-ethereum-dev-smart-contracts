@@ -1,5 +1,3 @@
-🚀 **Happy coding!**
-
 # Kubernetes Ethereum Dev & Smart Contracts 🚀
 
 Welcome to **Kubernetes Ethereum Dev & Smart Contracts**! 
@@ -32,7 +30,7 @@ This repository is organized into the following directories:
 
 ---
 
-For a deeper dive into the setup, configurations, and hands-on exercises, check out the **[full course here](course/guide.md)**. 🚀
+For a deeper dive into the setup, configurations, and hands-on exercises, check out the **[full course here](course/guide.md)**.
 
 ---
 
