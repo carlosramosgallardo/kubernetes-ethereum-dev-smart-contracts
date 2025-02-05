@@ -18,6 +18,3 @@ dependencies:
   - name: smart-contract-verifier-http
     repository: https://ethpandaops.github.io/ethereum-helm-charts
     version: "0.1.2"
-  - name: blockscout
-    repository: https://ethpandaops.github.io/ethereum-helm-charts
-    version: "0.2.3"
