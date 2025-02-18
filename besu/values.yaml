@@ -1,0 +1,47 @@
+besu:
+  ingress:
+    enabled: true
+    hosts:
+      - host: "besu.local"
+        paths:
+          - path: "/"
+            pathType: Prefix
+  
+  extraEnv:
+    - name: MINER_COINBASE
+      valueFrom:
+        secretKeyRef:
+          name: besu-secrets
+          key: MINER_COINBASE
+  
+    - name: ETHSTATS_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: besu-secrets
+          key: ETHSTATS_SECRET
+  
+  
+  extraArgs:
+    - --network=dev
+    - --rpc-http-enabled=true
+    - --rpc-ws-enabled=true
+    - --miner-enabled=true
+    - --rpc-http-api=ETH,NET,DEBUG,TXPOOL,WEB3,TRACE
+    - --rpc-ws-api=ETH,NET,DEBUG,TXPOOL,WEB3,TRACE
+    - --miner-coinbase="$(MINER_COINBASE)"
+    - --min-gas-price=0
+    - --ethstats=ws://besu-0:"$(ETHSTATS_SECRET)"@ethstats:3000
+  
+  
+  persistence:
+    enabled: true
+    accessModes:
+      - ReadWriteOnce
+    size: 10Gi
+  
+  resources:
+    requests:
+      cpu: "2000m"
+      memory: "4Gi"
+    limits:
+      cpu: "6000m"

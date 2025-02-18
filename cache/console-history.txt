@@ -1,0 +1,6 @@
+exit
+console.log(await contract.secretWord()); // ¿Qué valor tiene?
+console.log(await contract.isSolved()); // ¿Está realmente resuelto?
+const contract = await ethers.getContractAt("RiddleContract", process.env.CONTRACT_ADDRESS);
+npx hardhat run tests/mineBlocks.js --network development
+npx hardhat console --network development

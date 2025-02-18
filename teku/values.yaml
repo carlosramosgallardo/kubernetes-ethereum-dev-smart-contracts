@@ -1,0 +1,22 @@
+teku:
+  extraArgs:
+    - --ee-endpoint=http://besu:8551
+  persistence:
+    enabled: true
+    accessModes:
+    - ReadWriteOnce
+    size: 10Gi
+  
+  resources:
+    requests:
+      cpu: "2000m"
+      memory: "6Gi"  # Aumentado a 6GB de RAM
+    limits:
+      cpu: "8000m"
+      memory: "24Gi"  # Límite aumentado a 12GB de RAM
+  
+  extraJvmOpts:
+    - "-Xmx8g"  # Aumenta el heap máximo a 8GB
+    - "-Xms12g"  # Asegura un mínimo de 6GB
+
+

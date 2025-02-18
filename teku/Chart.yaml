@@ -1,0 +1,18 @@
+apiVersion: v2
+description: An open-source Ethereum 2.0 client, written in Java
+home: https://consensys.net/knowledge-base/ethereum-2/teku/
+icon: https://launchpad.ethereum.org/static/media/pegasys-teku-circle.4147bb69.png
+maintainers:
+- email: rafael@skyle.net
+  name: skylenet
+- email: busa.barnabas@gmail.com
+  name: barnabasbusa
+name: teku
+sources:
+- https://github.com/Consensys/teku/
+type: application
+version: 1.1.4
+dependencies:
+  - name: teku
+    version: "1.1.4"
+    repository: "https://ethpandaops.github.io/ethereum-helm-charts"

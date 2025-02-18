@@ -1,0 +1,13 @@
+postgresql:
+  auth:
+    username: postgres
+    database: blockscout
+    existingSecret: blockscout-postgresql
+    persistence:
+      enabled: true
+      accessModes:
+        - ReadWriteOnce
+      size: 10Gi
+  extraEnvVars:
+    - name: POSTGRESQL_MAX_CONNECTIONS
+      value: "100000"

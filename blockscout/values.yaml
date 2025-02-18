@@ -1,0 +1,32 @@
+blockscout:
+  ingress:
+    enabled: true
+    hosts:
+      - host: "blockscout.local"
+        paths:
+          - path: "/"
+            pathType: Prefix
+  smart-contract-verifier-http:
+    enabled: true
+  postgresql:
+    enabled: false
+    auth:
+      existingSecret: "blockscout-postgresql"
+      username: postgres
+extraEnv:
+  - name: RE_CAPTCHA_V3_SECRET_KEY    
+    valueFrom:
+      secretKeyRef:
+        name: recaptcha-credentials
+        key: RE_CAPTCHA_SECRET_KEY
+  - name: RE_CAPTCHA_V3_CLIENT_KEY
+    valueFrom:
+      secretKeyRef:
+        name: recaptcha-credentials
+resources:
+  requests:
+    cpu: "2000m"
+    memory: "4Gi"
+  limits:
+    cpu: "4000m"
+    memory: "8Gi"
